@@ -4,15 +4,16 @@ import './index.css';
 import './App.css'
 import reportWebVitals from './reportWebVitals';
 
-import { createStore } from "redux"
+import { createStore, applyMiddleware } from "redux"
 import { Provider } from "react-redux"
+import logger from "redux-logger"
 
 import Title from './components/Title'
 import  { titleReducer } from './reducers/titleReducer'
 
 
 // Step 1: Create store
-const store = createStore(titleReducer)
+const store = createStore(titleReducer, applyMiddleware(logger))
 
 function App() {
   return (
