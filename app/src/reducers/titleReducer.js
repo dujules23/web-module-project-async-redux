@@ -1,4 +1,4 @@
-import { TOGGLE_EDITING } from "../actions/titleActions"
+import { TOGGLE_EDITING, UPDATE_TITLE } from "../actions/titleActions"
 
 const initialState = {
     editing: false,
@@ -13,6 +13,12 @@ export const titleReducer = (state = initialState, action) => {
             return {
                 ...state,
                 editing: !state.ediditng
+            }
+        case UPDATE_TITLE:
+            return {
+                ...state,
+                title: action.payload,
+                editing: false
             }
         default:
             return state;

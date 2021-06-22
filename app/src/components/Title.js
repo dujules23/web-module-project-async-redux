@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from "react-redux"
-import { toggleEditing } from "../actions/titleActions"
+import { toggleEditing, updateTitle } from "../actions/titleActions"
 
 
 function Title(props) {
@@ -26,7 +26,7 @@ function Title(props) {
           value={newTitleText}
           onChange={handleChanges}
         />
-        <button>
+        <button onClick={() => props.updateTitle(newTitleText)}>
           Update Title
         </button>
       </div>
@@ -42,6 +42,6 @@ const mapState =(state) => {
   }
 }
 
-const mapDispatch = { toggleEditing }
+const mapDispatch = { toggleEditing, updateTitle }
 
 export default connect(mapState, mapDispatch)(Title);
