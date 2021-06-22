@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { connect } from "react-redux"
+import { toggleEditing } from "../actions/titleActions"
 
 
-
-function Title() {
+function Title(props) {
   const [newTitleText, setNewTitleText] = useState('')
 
   const handleChanges = (e) => {
@@ -11,8 +12,12 @@ function Title() {
 
   return (
     <div className="Title">
-      <h1>Breath Of The Wild Monsters</h1>
-      <i />
+      {!props.editing ? (
+      <h1>
+        {props.title}{" "}
+        <button onClick={() => props.toggleEditing()}>Edit Title</button>
+      </h1>
+      ) : (
       <div>
         <input 
           className="title-input"
@@ -25,8 +30,18 @@ function Title() {
           Update Title
         </button>
       </div>
+      )}   
     </div>
   );
+};
+
+const mapState =(state) => {
+  return {
+    editing: state.editing,
+    title: state.title
+  }
 }
 
-export default Title;
+const mapDispatch = { toggleEditing }
+
+export default connect(mapState, mapDispatch)(Title);
