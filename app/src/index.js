@@ -9,6 +9,7 @@ import { Provider } from "react-redux"
 import logger from "redux-logger"
 
 import Title from './components/Title'
+import Monster from './components/Monster'
 import  { titleReducer } from './reducers/titleReducer'
 
 
@@ -19,6 +20,7 @@ function App() {
   return (
     <div className="App">
       <Title />
+      <Monster />
     </div>
   );
 }
