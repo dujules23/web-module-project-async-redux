@@ -37,8 +37,8 @@ function Title(props) {
 
 const mapState =(state) => {
   return {
-    editing: state.editing,
-    title: state.title
+    editing: state.titleReducer.editing,
+    title: state.titleReducer.title
   }
 }
 

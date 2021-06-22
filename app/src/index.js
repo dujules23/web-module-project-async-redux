@@ -10,11 +10,11 @@ import logger from "redux-logger"
 
 import Title from './components/Title'
 import Monster from './components/Monster'
-import  { titleReducer } from './reducers/titleReducer'
+import  rootReducer from './reducers'
 
 
 // Step 1: Create store
-const store = createStore(titleReducer, applyMiddleware(logger))
+const store = createStore(rootReducer, applyMiddleware(logger))
 
 function App() {
   return (
