@@ -3,6 +3,10 @@ import { connect } from "react-redux";
 import { fetchMonster } from '../actions/monsterActions'
 import Monster from './Monster'
 
+import { Container } from '@material-ui/core';
+import { Button } from '@material-ui/core';
+
+
 const MonsterCard = (props) => {
     useEffect (() => {props.fetchMonster(); }, []);
 
@@ -14,17 +18,17 @@ const MonsterCard = (props) => {
     // }
     
     return (
-        <div>
+        <Container maxWidth="sm">
            
-                <>
+            <>
                 {props.monsters.slice(0, shownItems).map((item) => (
                 <Monster key={item.id} item={item}/>
                 ))}
-                <button onClick={props.fetchMonster}>New Monster</  button>
+                <Button variant="contained" onClick={props.fetchMonster}>New Monster</Button>
             </> 
            
            
-        </div>
+        </Container>
     )
     
 };

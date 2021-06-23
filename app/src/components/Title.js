@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { connect } from "react-redux"
 import { toggleEditing, updateTitle } from "../actions/titleActions"
 
+import { IconButton } from '@material-ui/core';
+
 
 function Title(props) {
   const [newTitleText, setNewTitleText] = useState('')
@@ -15,7 +17,7 @@ function Title(props) {
       {!props.editing ? (
       <h1>
         {props.title}{" "}
-        <button onClick={() => props.toggleEditing()}>Edit Title</button>
+        <IconButton aria-label="delete" onClick={() => props.toggleEditing()}>edit</IconButton>
       </h1>
       ) : (
       <div>
