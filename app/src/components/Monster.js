@@ -1,16 +1,24 @@
-import React, { useEffect } from "react";
-// import { connect } from "react-redux";
+import React from "react";
+
+import { connect } from "react-redux";
 
 
-const Monster = (props) => {
-
+const Monster = (props, i) => {
     return (
-        <>
-            <h2>Monster:</h2>
-            {/* <img src={props.monster} alt="monster">{props.image}</img>
-            <p>{props.description}</p> */}
-        </>   
+        <div className="monster">
+            <p>{props.item.name}</p>
+            <img src={props.item.image} alt="monster" /> 
+            <p>{props.item.description}</p>
+            <p></p>
+        </div>    
     )
-};
+}
 
-export default Monster;
+const mapState = (state) => {
+    console.log(state)
+    return {
+        monsters: state.monsterReducer.monsters
+    }
+}
+
+export default connect(mapState)(Monster);

@@ -7,20 +7,21 @@ import reportWebVitals from './reportWebVitals';
 import { createStore, applyMiddleware } from "redux"
 import { Provider } from "react-redux"
 import logger from "redux-logger"
+import thunk from "redux-thunk"
 
 import Title from './components/Title'
-import Monster from './components/Monster'
+import MonsterCard from './components/MonsterCard'
 import  rootReducer from './reducers'
 
 
 // Step 1: Create store
-const store = createStore(rootReducer, applyMiddleware(logger))
+const store = createStore(rootReducer, applyMiddleware(logger, thunk))
 
 function App() {
   return (
     <div className="App">
       <Title />
-      <Monster />
+      <MonsterCard />
     </div>
   );
 }
