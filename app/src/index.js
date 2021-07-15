@@ -9,7 +9,7 @@ import { Provider } from "react-redux"
 import logger from "redux-logger"
 import thunk from "redux-thunk"
 
-import Box from '@material-ui/core/Box';
+import { Container } from '@material-ui/core/';
 
 import Title from './components/Title'
 import MonsterCard from './components/MonsterCard'
@@ -21,10 +21,10 @@ const store = createStore(rootReducer, applyMiddleware(logger, thunk))
 
 function App() {
   return (
-    <Box>
+    <Container maxWidth="sm">
       <Title />
       <MonsterCard />
-    </Box>
+    </Container >
   );
 }
 

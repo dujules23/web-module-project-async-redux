@@ -2,18 +2,30 @@ import React, { useState } from 'react';
 import { connect } from "react-redux"
 import { toggleEditing, updateTitle } from "../actions/titleActions"
 
-import { IconButton } from '@material-ui/core';
+import { IconButton, makeStyles, Container} from '@material-ui/core';
 
+
+const useStyles = makeStyles({
+  root: {
+    display: "flex",
+    justifyContent: "center",
+    border: 0,
+    color: 'black',
+    fontSize: 14
+  }
+});
 
 function Title(props) {
   const [newTitleText, setNewTitleText] = useState('')
+
+  const classes = useStyles();
 
   const handleChanges = (e) => {
     setNewTitleText(e.target.value)
   }
 
   return (
-    <div className="Title">
+    <Container className={classes.root}>
       {!props.editing ? (
       <h1>
         {props.title}{" "}
@@ -33,7 +45,7 @@ function Title(props) {
         </button>
       </div>
       )}   
-    </div>
+    </Container>
   );
 };
 

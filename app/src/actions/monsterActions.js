@@ -11,7 +11,7 @@ export const fetchMonster = () => (dispatch) => {
 
 
     .then(res => {
-        console.log(res.data.data);
+        // console.log(res.data.data);
         dispatch({ type: FETCH_MONSTER_HAPPY, payload: res.data.data });
     })
 
