@@ -24,7 +24,7 @@ function App() {
     <Container maxWidth="sm">
       <Title />
       <MonsterCard />
-    </Container >
+    </Container>
   );
 }
 
